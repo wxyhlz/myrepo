@@ -1,2 +1,3 @@
 # myrepo
+mytext
 myrepo-test
