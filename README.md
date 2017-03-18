@@ -1,3 +1,0 @@
-# myrepo
-mytext
-myrepo-test
