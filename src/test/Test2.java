@@ -9,5 +9,10 @@ public class Test2 {
 	public void test1() {
 		System.out.println("HELLO GINA!!!");
 	}
+	
+	@Test
+	public void test2() {
+		System.out.println("HELLO NANJING!!!");
+	}
 
 }
