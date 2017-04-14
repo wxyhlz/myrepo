@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.core.resource.mapper.ResourceMapper">
+	
+	<sql id="conditions"><!-- Search Condition -->
+		<where>
+			<if test="id != null">id = #{id}</if>
+			<if test="pid != null">and pid = #{pid}</if>
+			<if test="parentName != null and parentName != ''">and parent_name = #{parentName}</if>
+			<if test="resourceName != null and resourceName != ''">and resource_name = #{resourceName}</if>
+			<if test="resourceCode != null and resourceCode != ''">and resource_code = #{resourceCode}</if>
+			<if test="resourceType != null">and resource_type = #{resourceType}</if>
+			<if test="openType != null">and open_type = #{openType}</if>
+			<if test="menuUrl != null and menuUrl != ''">and menu_url = #{menuUrl}</if>
+			<if test="optId != null">and opt_id = #{optId}</if>
+			<if test="addTime != null">and add_time = #{addTime}</if>
+			<if test="updateTime != null">and update_time = #{updateTime}</if>
+			<if test="mark != null">and mark = #{mark}</if>
+		</where>
+	</sql>
+	
+	<select id="selectExportResEntities" parameterType="Map" resultType="Map">
+		select resource_name, parent_name, menu_url, add_time, update_time 
+		from sys_core_resource 
+		<include refid="conditions"/>
+		order by pid, id 
+		limit #{pageBegin},#{pageSize}
+	</select>
+	
+</mapper>
